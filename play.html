@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#1e6fb8">
+  <link rel="manifest" href="manifest.webmanifest">
+  <title>مفاتيح بطل الأمان</title>
+  <link rel="stylesheet" href="css/keys.css">
+</head>
+<body>
+  <div id="stage">
+    <canvas id="cv" width="1280" height="720"></canvas>
+    <div id="ui"></div>
+    <div id="fade"></div>
+    <div id="load"><div class="bar"><i></i></div></div>
+  </div>
+  <dialog class="teach" id="teach">
+    <form method="dialog">
+      <p>رقم المعلم ⚙️</p>
+      <input id="pin" type="password" inputmode="numeric" maxlength="6" autocomplete="off">
+      <p style="display:flex;gap:10px;justify-content:center">
+        <button class="btn small" value="ok">✓</button>
+        <button class="btn small" value="close">✖</button>
+      </p>
+    </form>
+  </dialog>
+  <div class="rot">📱↻</div>
+  <script>/* opened by double-clicking play.html (file://): the browser blocks the game here, so tell the teacher how to start it (committee r7) */
+    if (location.protocol === 'file:') document.getElementById('load').innerHTML = '<div class="loaderr">لِتَشْغِيلِ اللُّعْبَةِ انْقُرْ نَقْرًا مُزْدَوِجًا عَلَى الْمِلَفِّ<br>«تشغيل اللعبة.bat»<br>فِي مُجَلَّدِ اللُّعْبَةِ نَفْسِهِ.</div>';</script>
+  <script type="module" src="js/keys/main.js"></script>
+  <script>if ("serviceWorker" in navigator && !/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) navigator.serviceWorker.register("sw.js");</script>
+</body>
+</html>

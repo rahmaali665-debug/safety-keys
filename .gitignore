@@ -1,0 +1,12 @@
+# Old versions and drafts: not part of the published game
+proto/
+play-v4.html
+o_*.md
+js/game/
+css/game.css
+data/behaviors.json
+data/strings.json
+assets/models/
+assets/tex/
+assets/ui/
+assets/cards/

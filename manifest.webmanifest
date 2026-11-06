@@ -1,0 +1,13 @@
+{
+  "name": "مفاتيح بطل الأمان",
+  "short_name": "بطل الأمان",
+  "description": "لعبة تعليمية لدرس «أحمي نفسي على الطريق» – التربية للمواطنة – الصف الثاني",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#1e6fb8",
+  "theme_color": "#1e6fb8",
+  "icons": [{ "src": "assets/ui/logo-emblem.webp", "sizes": "512x512", "type": "image/webp" }]
+}
