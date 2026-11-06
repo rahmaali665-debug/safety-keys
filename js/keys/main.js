@@ -323,7 +323,7 @@ function say(who, html, x, y, o = {}) {
   const b = add(`<div class="bubble ${who === 'teacher' ? 't' : who === 'lammah' ? 'l' : ''} ${o.cls || ''}"><span class="who">${WHO[who] || WHO.salem}</span>${html}</div>`);
   if (o.max) b.style.maxWidth = o.max + 'px';
   const bw = b.offsetWidth, bh = b.offsetHeight;
-  const left = clamp(o.side === 'left' ? x - bw + 50 : x - 60, 16, W - bw - 16), top = clamp(y - bh - 30, b.classList.contains("cloud") ? 104 : 78, H - bh - 16);   /* clouds clear of the top buttons and their labels */
+  const left = clamp(o.side === 'left' ? x - bw + 50 : x - 60, 16, W - bw - 16), top = clamp(y - bh - 30, o.minTop ?? (b.classList.contains("cloud") ? 104 : 78), H - bh - 16);   /* clouds clear of the top buttons and their labels */
   b.style.left = left + 'px'; b.style.top = top + 'px'; b.style.setProperty('--tail', clamp(left + bw - x - 13, 20, bw - 46) + 'px');
   return b;
 }
@@ -642,15 +642,17 @@ function welcome() {
     camTo = { to: clamp(STOP - BACK, 0, MAXCAM), v: 1300 }; await until(() => !camTo);
     phase = 'greet'; await wait(450);
     const sx = P.x - cam;
-    say('salem', 'مَرْحَبًا يَا صَدِيقِي!<br>أَنَا سَالِمٌ، أُرِيدُ الْوُصُولَ إِلَى مَدْرَسَتِي بِأَمَانٍ.<br>فِي طَرِيقِي ثَلَاثَةُ أَبْوَابٍ مُقْفَلَةٍ،<br>سَاعِدْنِي لِنَجْمَعَ مَفَاتِيحَهَا!', sx - 30, FOOT - SH * 1.12 - 20, { max: 640, cls: 'cloud' });   /* the cloud opens to the right: the bronze door is on the left */
+    say('salem', 'مَرْحَبًا يَا صَدِيقِي!<br>أَنَا سَالِمٌ، أُرِيدُ الْوُصُولَ إِلَى مَدْرَسَتِي بِأَمَانٍ.', sx - 30, FOOT - SH * 1.12 - 20, { max: 640, cls: 'cloud', minTop: 12 });   /* two short clouds: one cloud of four lines covered Salem and «هادي» (teacher, 7 Nov 2026) */
+    await read();
+    say('salem', 'فِي طَرِيقِي ثَلَاثَةُ أَبْوَابٍ مُقْفَلَةٍ،<br>سَاعِدْنِي لِنَجْمَعَ مَفَاتِيحَهَا!', sx - 30, FOOT - SH * 1.12 - 20, { max: 640, cls: 'cloud', minTop: 12 });
     await read();
     /* «هادي» introduces himself, reassures Salem, and asks the child to say the game's motto with him */
     const hx = sx + 30 + SH * 1.12 * .25, hy = FOOT - SH * 1.12 - 20;
-    say('lammah', 'أَنَا هَادِي، إِشَارَةُ الْمُرُورِ!<br>أَهْدِيكَ إِلَى الطَّرِيقِ الْآمِنِ.', hx, hy, { max: 560, cls: 'cloud' });
+    say('lammah', 'أَنَا هَادِي، إِشَارَةُ الْمُرُورِ!<br>أَهْدِيكَ إِلَى الطَّرِيقِ الْآمِنِ.', hx, hy, { max: 560, cls: 'cloud', minTop: 12 });
     await read();
-    say('lammah', 'لَا تَقْلَقْ يَا سَالِمُ!<br>سَأُسَاعِدُكَ لِتَجْمَعَ الْمَفَاتِيحَ<br>وَتَصِلَ إِلَى مَدْرَسَتِكَ بِأَمَانٍ.', hx, hy, { max: 660, cls: 'cloud' });
+    say('lammah', 'لَا تَقْلَقْ يَا سَالِمُ!<br>سَأُسَاعِدُكَ لِتَجْمَعَ الْمَفَاتِيحَ<br>وَتَصِلَ إِلَى مَدْرَسَتِكَ بِأَمَانٍ.', hx, hy, { max: 660, cls: 'cloud', minTop: 12 });
     await read();
-    say('lammah', 'هَيَّا يَا صَدِيقِي،<br>رَدِّدْ مَعَنَا شِعَارَ اللُّعْبَةِ!', hx, hy, { max: 560, cls: 'cloud' });
+    say('lammah', 'هَيَّا يَا صَدِيقِي،<br>رَدِّدْ مَعَنَا شِعَارَ اللُّعْبَةِ!', hx, hy, { max: 560, cls: 'cloud', minTop: 12 });
     await read();
     hush();
     /* the motto, said by Salem and «هادي» together: one cloud with two tails (one to each); its three parts come in one after another */
