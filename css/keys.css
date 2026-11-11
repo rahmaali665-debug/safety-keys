@@ -909,3 +909,12 @@ body.calm .nextb::before, body.calm .fb2 .go::before, body.calm .btn.bk-next::be
 .medalp .more .vals span, .medalp .more .vals { font-size: 22px; } .medalp .more .know { font-size: 22px; line-height: 1.55; } .medalp .more p { font-size: 24px; }
 .nextb, .fb2 .go, .btn.bk-next, .btn.hd-next { outline: 2px solid #fff; outline-offset: 1px; }
 .nextb::before, .fb2 .go::before, .btn.bk-next::before, .btn.hd-next::before { background: conic-gradient(from var(--na), #FF8A00, #E8400C, #C81E00, #E8400C, #FF8A00, #FFB347, #FF8A00) !important; }
+
+/* level 3, picture-only cards (teacher, 11 Nov 2026): no words on the card, a bigger picture; the book sentences come after the check */
+.board3 .scard.pic img { height: 140px; border-bottom: 0; border-radius: 8px; }
+.scard.pic img { height: 132px; border-bottom: 0; border-radius: 12px; }
+.bookp { width: 1060px; padding: 30px 26px 18px; }
+.bookp h4 { margin: 4px 0 0; font: 800 24px Naskh; } .bookp h4.ok { color: #1f7a2a; } .bookp h4.no { color: #c0262f; }
+.bookp .grid { margin: 6px 0 10px; gap: 10px; }
+.bookp .mc img { height: 104px; }
+.bookp .mc p { font-size: 17px; margin: 4px 6px 6px; }
